@@ -40,5 +40,5 @@ jobs:
             echo "SSH_SERVER_HOST is set"
           fi
           
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_HOST }} "cd log430-a25-labo0 && git pull origin main && sudo docker build -t labo0-calculator . && sudo docker run -d --name labo0-calculator labo0-calculator"
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_SERVER_HOST }} "cd log430-a25-labo0 && git pull origin main && sudo docker build -t labo0-calculator . && sudo docker compose up -d"
 
